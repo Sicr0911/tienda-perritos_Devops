@@ -5,13 +5,12 @@ const DB_PASSWORD = process.env.DB_PASSWORD || "root"; // o la que uses en tu PC
 const DB_NAME = process.env.DB_NAME || "tienda_perritos";
 const DB_PORT = process.env.DB_PORT || 3306;
 
-const {
-  DB_HOST = "10.0.11.137", // acá colocar la IP Privada EC2 DB
-  DB_USER = "root",
-  DB_PASSWORD = "admin123",
-  DB_NAME = "tienda_perritos",
-  DB_PORT = 3306,
-} = process.env;
+// Ahora el código buscará la IP que tú definas en los Secrets de GitHub
+const DB_HOST = process.env.DB_HOST || "localhost"; 
+const DB_USER = process.env.DB_USER || "root";
+const DB_PASSWORD = process.env.DB_PASSWORD || "admin123";
+const DB_NAME = process.env.DB_NAME || "tienda_perritos";
+const DB_PORT = process.env.DB_PORT || 3306;
 
 app.use(cors());
 app.use(express.json());
