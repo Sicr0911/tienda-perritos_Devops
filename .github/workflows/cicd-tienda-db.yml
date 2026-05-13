@@ -45,6 +45,6 @@ jobs:
           "docker pull ${{ secrets.ECR_REPO_URL_DB }}:latest",
           "docker stop tienda-db || true",
           "docker rm tienda-db || true",
-          "docker run -d --name tienda-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }} -e MYSQL_DATABASE=tienda_perritos -v dbdata:/var/lib/mysql ${{ secrets.ECR_REPO_URL_DB }}:latest"
+         "docker run -d --name tienda-db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }} -v db_data:/var/lib/mysql ${{ secrets.ECR_REPO_URL_DB }}:latest"
         ]}' \
         --output text
